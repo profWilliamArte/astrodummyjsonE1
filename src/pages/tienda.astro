@@ -1,0 +1,33 @@
+---
+import Layout from "../layout/Layout.astro"
+const API='https://dummyjson.com/products'
+const resp = await fetch(API)
+const data = await resp.json();
+
+---
+<Layout title="Tienda">
+	<div class="container">
+        <div class="row">
+        {
+            data && data.products.map((item)=>(
+            <div class="col-md-4 col-lg-3 col-xl-2 mb-4">
+                <div class="card h-100">
+                    <div class="card-header p-0">
+                        <img src={item.thumbnail} alt="" class="img-fluid">
+                    </div>
+                    <div class="card-body text-center">
+                        <p>{item.title}</p>
+                        <p class="text-danger">Precio: {item.price}$</p>
+                    </div>
+                    <div class="card-footer text-center">
+                        <a href="#" class="btn btn-outline-success">Detalle</a>
+                    </div>
+                </div>
+            </div>
+            ))
+        }
+    
+        </div>
+</Layout>
+
+

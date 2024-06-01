@@ -1,0 +1,22 @@
+---
+import 'bootstrap/dist/css/bootstrap.css';
+import Header from '../componets/Header.astro';
+import Footer from '../componets/Footer.astro';
+const {titulo} = Astro.params;
+---
+
+<html lang="es">
+	<head>
+		<meta charset="utf-8" />
+		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<meta name="viewport" content="width=device-width" />
+		<meta name="generator" content={Astro.generator} />
+		<title>{titulo}</title>
+	</head>
+	<body class="bg-dark">
+        <Header/>
+		    <slot/>
+        <Footer/>
+	</body>
+    <script src="bootstrap/dist/js/bootstrap.bundle.js"></script>
+</html>
